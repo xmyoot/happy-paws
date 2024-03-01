@@ -2,14 +2,15 @@
   "expo": {
     "name": "happy-paws",
     "slug": "happy-paws",
+    "scheme": "happy-paws",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/logo-white.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#efefef"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -22,7 +23,8 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
     },
     "plugins": [
       [
@@ -39,7 +41,8 @@
             "assets/fonts/Montserrat/static/Montserrat-Regular.ttf"
           ]
         }
-      ]
+      ],
+      "expo-router"
     ]
   }
 }
