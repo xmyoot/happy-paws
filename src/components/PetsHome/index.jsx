@@ -1,8 +1,9 @@
 import { Text, Image, StyleSheet, View, TouchableOpacity } from 'react-native';
-import { router } from 'expo-router';
+import { useRouter } from 'expo-router';
 import banner from '../../../assets/images/group-of-kittens-and-puppies-sitting-isolated-on-2023-11-27-04-51-32-utc.jpg';
 
 export default function PetsHome() {
+  const router = useRouter();
   const handleNavigateToServices = () => {
     router.push('services');
   };
@@ -36,6 +37,7 @@ const styles = StyleSheet.create({
     gap: 14,
     width: '100%',
     marginBottom: 60,
+    paddingHorizontal: 20,
   },
   image: {
     width: 400,

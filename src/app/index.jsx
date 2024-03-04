@@ -1,45 +1,16 @@
-import { useCallback } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { useFonts } from 'expo-font';
-import {
-  FiraSans_400Regular,
-  FiraSans_500Medium,
-  FiraSans_600SemiBold,
-  FiraSans_700Bold,
-} from '@expo-google-fonts/fira-sans';
-import {
-  Montserrat_400Regular,
-  Montserrat_500Medium,
-  Montserrat_600SemiBold,
-  Montserrat_700Bold,
-} from '@expo-google-fonts/montserrat';
 import * as SplashScreen from 'expo-splash-screen';
 import PetsHome from '../components/PetsHome';
+import Qct from '../components/QCT';
 
 SplashScreen.preventAutoHideAsync();
 export default function Page() {
-  const [fontsLoaded, fontError] = useFonts({
-    FiraSans_400Regular,
-    FiraSans_500Medium,
-    FiraSans_600SemiBold,
-    FiraSans_700Bold,
-    Montserrat_400Regular,
-    Montserrat_500Medium,
-    Montserrat_600SemiBold,
-    Montserrat_700Bold,
-  });
-
-  const onLayoutRootView = useCallback(async () => {
-    if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded, fontError]);
-
   return (
-    <SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
+    <SafeAreaProvider style={styles.container}>
       <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
         <PetsHome />
+        <Qct />
       </ScrollView>
     </SafeAreaProvider>
   );
@@ -50,7 +21,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     height: '100%',
-    paddingHorizontal: 20,
     backgroundColor: '#ffff',
   },
 });
