@@ -1,7 +1,8 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { useCallback } from "react";
+import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import PetsHome from "../components/PetsHome";
 import {
+  useFonts,
   FiraSans_400Regular,
   FiraSans_500Medium,
   FiraSans_600SemiBold,
@@ -13,11 +14,12 @@ import {
   Montserrat_600SemiBold,
   Montserrat_700Bold,
 } from "@expo-google-fonts/montserrat";
-import useCustomFonts from "../hooks/useCustomFonts";
 import * as SplashScreen from "expo-splash-screen";
+import PetsHome from "../components/PetsHome";
 
+SplashScreen.preventAutoHideAsync();
 export default function Page() {
-  const { onLayoutRootView, fontsLoaded } = useCustomFonts({
+  const [fontsLoaded, fontError] = useFonts({
     FiraSans_400Regular,
     FiraSans_500Medium,
     FiraSans_600SemiBold,
@@ -28,11 +30,11 @@ export default function Page() {
     Montserrat_700Bold,
   });
 
-  if (!fontsLoaded) {
-    SplashScreen.preventAutoHideAsync();
-  } else {
-    SplashScreen.hideAsync();
-  }
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
 
   return (
     <SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
