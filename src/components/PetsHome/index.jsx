@@ -1,17 +1,10 @@
-import {
-  Text,
-  Image,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Linking,
-} from "react-native";
-import { router } from "expo-router";
-import banner from "../../../assets/images/group-of-kittens-and-puppies-sitting-isolated-on-2023-11-27-04-51-32-utc.jpg";
+import { Text, Image, StyleSheet, View, TouchableOpacity } from 'react-native';
+import { router } from 'expo-router';
+import banner from '../../../assets/images/group-of-kittens-and-puppies-sitting-isolated-on-2023-11-27-04-51-32-utc.jpg';
 
 export default function PetsHome() {
   const handleNavigateToServices = () => {
-    router.push("services");
+    router.push('services');
   };
 
   return (
@@ -41,47 +34,47 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     gap: 14,
-    width: "100%",
+    width: '100%',
     marginBottom: 60,
   },
   image: {
     width: 400,
     height: 240,
-    alignSelf: "center",
+    alignSelf: 'center',
   },
   title: {
-    textAlign: "left",
-    fontFamily: "Montserrat_700Bold",
+    textAlign: 'left',
+    fontFamily: 'Montserrat_700Bold',
     fontSize: 36,
     width: 334,
   },
   welcome: {
-    fontFamily: "FiraSans_400Regular",
+    fontFamily: 'FiraSans_400Regular',
     fontSize: 36,
     marginTop: 14,
   },
   description: {
-    fontFamily: "FiraSans_400Regular",
+    fontFamily: 'FiraSans_400Regular',
     fontSize: 24,
     paddingEnd: 11,
   },
   footerText: {
-    width: "100%",
-    fontFamily: "Montserrat_500Medium",
+    width: '100%',
+    fontFamily: 'Montserrat_500Medium',
     fontSize: 30,
     marginVertical: 31,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#A189C8",
+    alignItems: 'center',
+    backgroundColor: '#A189C8',
     borderRadius: 5,
     paddingVertical: 8,
     paddingHorizontal: 28,
-    alignSelf: "flex-start",
+    alignSelf: 'flex-start',
   },
   buttonText: {
-    fontFamily: "Montserrat_600SemiBold",
+    fontFamily: 'Montserrat_600SemiBold',
     fontSize: 24,
-    color: "#efefef",
+    color: '#efefef',
   },
 });
