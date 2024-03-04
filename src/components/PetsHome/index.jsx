@@ -1,7 +1,13 @@
-import { Text, Image, StyleSheet, View, TouchableOpacity } from "react-native";
-import { Link } from "expo-router";
+import {
+  Text,
+  Image,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
+import { router } from "expo-router";
 import banner from "../../../assets/images/group-of-kittens-and-puppies-sitting-isolated-on-2023-11-27-04-51-32-utc.jpg";
-// import useCustomFonts from "../../hooks/useCustomFonts";
 
 export default function PetsHome() {
   return (
@@ -18,9 +24,7 @@ export default function PetsHome() {
       </View>
       <Text style={styles.footerText}>Making Tails Wag & Hearts Happy</Text>
       <TouchableOpacity style={styles.touchable}>
-        <Link href="/services" style={styles.button}>
-          Book Now
-        </Link>
+        <Text>Book Now</Text>
       </TouchableOpacity>
     </View>
   );
@@ -31,45 +35,40 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 14,
     width: "100%",
-    borderColor: "red",
-    borderWidth: 1,
-    alignItems: "center",
+    marginBottom: 60,
   },
   image: {
-    width: 500,
+    width: 470,
     height: 280,
+    alignSelf: "center",
   },
   title: {
-    width: 334,
     textAlign: "left",
-    fontFamily: "Montserrat-Bold",
+    fontFamily: "Montserrat_700Bold",
     fontSize: 36,
   },
-  // textWrapper: {
-  //   width: "100%",
-  // },
   welcome: {
-    fontFamily: "FiraSans-Regular",
+    fontFamily: "FiraSans_400Regular",
     fontSize: 36,
   },
   description: {
-    fontFamily: "FiraSans-Regular",
+    fontFamily: "FiraSans_400Regular",
     fontSize: 24,
   },
   footerText: {
-    fontFamily: "Montserrat-Medium",
+    width: "100%",
+    fontFamily: "Montserrat_500Medium",
     fontSize: 30,
   },
-  button: {
-    fontFamily: "Montserrat-SemiBold",
+  touchable: {
+    fontFamily: "Montserrat_600SemiBold",
     fontSize: 24,
     alignItems: "center",
     color: "#efefef",
-  },
-  touchable: {
     backgroundColor: "#A189C8",
     borderRadius: 5,
     paddingVertical: 8,
     paddingHorizontal: 28,
+    alignSelf: "flex-start",
   },
 });
