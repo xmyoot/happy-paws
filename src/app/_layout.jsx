@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useLayoutEffect } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { Drawer } from 'expo-router/drawer';
 import { useFonts } from 'expo-font';
@@ -30,9 +30,9 @@ export default function Layout() {
 
   SplashScreen.preventAutoHideAsync();
 
-  useCallback(async () => {
+  useLayoutEffect(() => {
     if (fontsLoaded || fontError) {
-      await SplashScreen.hideAsync();
+      SplashScreen.hideAsync();
     }
   }, [fontsLoaded, fontError]);
 
