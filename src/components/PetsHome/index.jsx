@@ -10,6 +10,10 @@ import { router } from "expo-router";
 import banner from "../../../assets/images/group-of-kittens-and-puppies-sitting-isolated-on-2023-11-27-04-51-32-utc.jpg";
 
 export default function PetsHome() {
+  const handleNavigateToServices = () => {
+    router.push("services");
+  };
+
   return (
     <View style={styles.container}>
       <Image source={banner} style={styles.image} />
@@ -23,8 +27,11 @@ export default function PetsHome() {
         </Text>
       </View>
       <Text style={styles.footerText}>Making Tails Wag & Hearts Happy</Text>
-      <TouchableOpacity style={styles.touchable}>
-        <Text>Book Now</Text>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handleNavigateToServices}
+      >
+        <Text style={styles.buttonText}>Book Now</Text>
       </TouchableOpacity>
     </View>
   );
@@ -38,37 +45,43 @@ const styles = StyleSheet.create({
     marginBottom: 60,
   },
   image: {
-    width: 470,
-    height: 280,
+    width: 400,
+    height: 240,
     alignSelf: "center",
   },
   title: {
     textAlign: "left",
     fontFamily: "Montserrat_700Bold",
     fontSize: 36,
+    width: 334,
   },
   welcome: {
     fontFamily: "FiraSans_400Regular",
     fontSize: 36,
+    marginTop: 14,
   },
   description: {
     fontFamily: "FiraSans_400Regular",
     fontSize: 24,
+    paddingEnd: 11,
   },
   footerText: {
     width: "100%",
     fontFamily: "Montserrat_500Medium",
     fontSize: 30,
+    marginVertical: 31,
   },
-  touchable: {
-    fontFamily: "Montserrat_600SemiBold",
-    fontSize: 24,
+  button: {
     alignItems: "center",
-    color: "#efefef",
     backgroundColor: "#A189C8",
     borderRadius: 5,
     paddingVertical: 8,
     paddingHorizontal: 28,
     alignSelf: "flex-start",
+  },
+  buttonText: {
+    fontFamily: "Montserrat_600SemiBold",
+    fontSize: 24,
+    color: "#efefef",
   },
 });
