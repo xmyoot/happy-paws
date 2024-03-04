@@ -26,23 +26,6 @@
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
     },
-    "plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "/assets/fonts/Fira_Sans/FiraSans-Bold.ttf",
-            "/assets/fonts/Fira_Sans/FiraSans-Semibold.ttf",
-            "/assets/fonts/Fira_Sans/FiraSans-Medium.ttf",
-            "/assets/fonts/Fira_Sans/FiraSans-Regular.ttf",
-            "assets/fonts/Montserrat/static/Montserrat-Bold.ttf",
-            "assets/fonts/Montserrat/static/Montserrat-SemiBold.ttf",
-            "assets/fonts/Montserrat/static/Montserrat-Medium.ttf",
-            "assets/fonts/Montserrat/static/Montserrat-Regular.ttf"
-          ]
-        }
-      ],
-      "expo-router"
-    ]
+    "plugins": ["expo-font", "expo-router"]
   }
 }

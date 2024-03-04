@@ -1,27 +1,46 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Link } from "expo-router";
+import { useCallback } from "react";
+import { ScrollView, StyleSheet } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import useCustomFonts from "../hooks/useCustomFonts";
+import {
+  useFonts,
+  FiraSans_400Regular,
+  FiraSans_500Medium,
+  FiraSans_600SemiBold,
+  FiraSans_700Bold,
+} from "@expo-google-fonts/fira-sans";
+import {
+  Montserrat_400Regular,
+  Montserrat_500Medium,
+  Montserrat_600SemiBold,
+  Montserrat_700Bold,
+} from "@expo-google-fonts/montserrat";
+import * as SplashScreen from "expo-splash-screen";
+import PetsHome from "../components/PetsHome";
 
+SplashScreen.preventAutoHideAsync();
 export default function Page() {
-  const { onLayoutRootView } = useCustomFonts({
-    "Montserrat-Bold": require("../../assets/fonts/Montserrat/static/Montserrat-Bold.ttf"),
-    "FiraSans-Regular": require("../../assets/fonts/Fira_Sans/FiraSans-Regular.ttf"),
+  const [fontsLoaded, fontError] = useFonts({
+    FiraSans_400Regular,
+    FiraSans_500Medium,
+    FiraSans_600SemiBold,
+    FiraSans_700Bold,
+    Montserrat_400Regular,
+    Montserrat_500Medium,
+    Montserrat_600SemiBold,
+    Montserrat_700Bold,
   });
 
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded || fontError) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
   return (
-    <SafeAreaProvider>
-      <View style={styles.container} onLayout={onLayoutRootView}>
-        <View style={styles.main}>
-          <Text style={styles.title}>Hello World</Text>
-          <Text style={styles.subtitle}>
-            This is the first page of your app.
-          </Text>
-          <Link href="/services" style={styles.button}>
-            Go to Services Page
-          </Link>
-        </View>
-      </View>
+    <SafeAreaProvider style={styles.container} onLayout={onLayoutRootView}>
+      <ScrollView contentContainerStyle={{ alignItems: "center" }}>
+        <PetsHome />
+      </ScrollView>
     </SafeAreaProvider>
   );
 }
@@ -29,27 +48,8 @@ export default function Page() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    padding: 24,
-  },
-  main: {
-    flex: 1,
-    justifyContent: "center",
-    maxWidth: 960,
-    marginHorizontal: "auto",
-  },
-  title: {
-    fontSize: 64,
-    fontFamily: "Montserrat-Bold",
-  },
-  subtitle: {
-    fontSize: 36,
-    color: "#38434D",
-    fontFamily: "FiraSans-Regular",
-  },
-  button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10,
+    width: "100%",
+    height: "100%",
+    paddingHorizontal: 20,
   },
 });

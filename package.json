@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/fira-sans": "^0.2.3",
+    "@expo-google-fonts/montserrat": "^0.2.3",
     "@react-navigation/drawer": "^6.6.11",
     "expo": "~50.0.8",
     "expo-constants": "~15.4.5",
