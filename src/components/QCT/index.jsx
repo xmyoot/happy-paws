@@ -30,15 +30,9 @@ export default function Qct() {
       {info.map((item) => {
         return (
           <View key={item.id} style={styles.infoWrapper}>
-            {item.icon === 'dog' && (
-              <DogIcon width={45} height={45} style={styles.icon} />
-            )}
-            {item.icon === 'heart' && (
-              <HeartIcon width={45} height={45} style={styles.icon} />
-            )}
-            {item.icon === 'cat' && (
-              <CatIcon width={45} height={45} style={styles.icon} />
-            )}
+            {item.icon === 'dog' && <DogIcon width={45} height={45} />}
+            {item.icon === 'heart' && <HeartIcon width={45} height={45} />}
+            {item.icon === 'cat' && <CatIcon width={45} height={45} />}
             <Text style={styles.title}>{item.title.toUpperCase()}</Text>
             <Text style={styles.description}>{item.description}</Text>
           </View>
@@ -64,6 +58,8 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginBottom: 5,
+    width: 45,
+    height: 45,
   },
   title: {
     textAlign: 'center',
