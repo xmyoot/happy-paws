@@ -3,6 +3,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import * as SplashScreen from 'expo-splash-screen';
 import PetsHome from '../components/PetsHome';
 import Qct from '../components/QCT';
+import AboutUs from '../components/AboutUs';
 
 SplashScreen.preventAutoHideAsync();
 export default function Page() {
@@ -11,6 +12,7 @@ export default function Page() {
       <ScrollView contentContainerStyle={{ alignItems: 'center' }}>
         <PetsHome />
         <Qct />
+        <AboutUs />
       </ScrollView>
     </SafeAreaProvider>
   );
