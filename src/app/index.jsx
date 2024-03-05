@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import PetsHome from '../components/PetsHome';
 import Qct from '../components/QCT';
 import AboutUs from '../components/AboutUs';
+import Footer from '../components/Footer';
 
 SplashScreen.preventAutoHideAsync();
 export default function Page() {
@@ -13,6 +14,7 @@ export default function Page() {
         <PetsHome />
         <Qct />
         <AboutUs />
+        <Footer />
       </ScrollView>
     </SafeAreaProvider>
   );
