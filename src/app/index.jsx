@@ -6,7 +6,7 @@ import Qct from '../components/QCT';
 import AboutUs from '../components/AboutUs';
 import ServicesList from '../components/ServicesList';
 import Footer from '../components/Footer';
-
+import ContactUs from '../components/ContactUs';
 SplashScreen.preventAutoHideAsync();
 export default function Page() {
   return (
@@ -16,6 +16,7 @@ export default function Page() {
         <Qct />
         <AboutUs />
         <ServicesList />
+        <ContactUs />
         <Footer />
       </ScrollView>
     </SafeAreaProvider>
